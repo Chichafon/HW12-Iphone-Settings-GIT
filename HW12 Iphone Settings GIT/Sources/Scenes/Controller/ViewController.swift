@@ -14,7 +14,10 @@ class ViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(SettingTableViewCell.self,
                            forCellReuseIdentifier: SettingTableViewCell.identifier)
-        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        tableView.register(SwitchTableViewCell.self,
+                           forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        tableView.register(SettingsRightLabelOptionCell.self,
+                           forCellReuseIdentifier: SettingsRightLabelOptionCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -24,6 +27,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configure()
         view.backgroundColor = .white
         title = "Настройки"
         setupHierarchy()
@@ -57,17 +61,57 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell",
-                                                       for: indexPath) as? SettingTableViewCell else {
-            return UITableViewCell()
-        }
+        let model = models[indexPath.section].options[indexPath.row]
 
-        cell.textLabel?.text = "it work or not???"
-        return cell
+        switch model.self {
+        case .basicCell(let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier,
+                                                           for: indexPath) as? SettingTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+
+            return cell
+
+        case .switchCell(let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier,
+                                                           for: indexPath) as? SwitchTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+
+            return cell
+
+        case .rightLabelCell(let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRightLabelOptionCell.identifier, for: indexPath) as? SettingsRightLabelOptionCell else {
+
+                return UITableViewCell()
+            }
+
+            cell.configure(with: model)
+
+            return cell
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let type = models[indexPath.section].options[indexPath.row]
+        switch type.self {
+        case .basicCell(let model):
+            model.handler()
+            print("Нажата ячейка <<\(model.title ?? "Отсутствует")>>")
+        case .switchCell(let model):
+            model.handler()
+            print("Нажата ячейка <<\(model.title ?? "Отсутствует")>>")
+        case .rightLabelCell(let model):
+            model.handler()
+            print("Нажата ячейка <<\(model.title ?? "Отсутствует")>>")
+        }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
-
 }
