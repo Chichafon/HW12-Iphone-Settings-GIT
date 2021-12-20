@@ -8,11 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private lazy var models = ["One", "Two", "Three"]
+    private lazy var models = [Section]()
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
+        tableView.register(SettingTableViewCell.self,
+                           forCellReuseIdentifier: SettingTableViewCell.identifier)
+        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -45,16 +47,27 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func configure() -> [Section] {
+
+        return models
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return models[section].options.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell",
+                                                       for: indexPath) as? SettingTableViewCell else {
+            return UITableViewCell()
+        }
 
         cell.textLabel?.text = "it work or not???"
         return cell
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
 
 }
