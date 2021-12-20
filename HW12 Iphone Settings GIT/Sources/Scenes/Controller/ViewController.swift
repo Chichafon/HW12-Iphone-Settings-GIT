@@ -53,9 +53,88 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func configure() -> [Section] {
+        models.append(Section(options: [
+                                        .switchCell(model: SettingsSwitchOption(title: "Авиарежим",
+                                                                                image: UIImage(systemName: "airplane") ?? .add,
+                                                                                iconBackGroundColor: .systemOrange,
+                                                                                isOn: false) {
+                                        }),
+                                        .rightLabelCell(model: SettingsRightLabelOption(title: "Wi-Fi",
+                                                                         image: UIImage(systemName: "wifi") ?? .add,
+                                                                         iconBackGroundColor: .systemBlue,
+                                                                         rightLabel: "Не подключено", rightLabelForRightContainer: " ",
+                                                                         rightIconBackGroundColor: .none) {
+                                        }),
+                                        .rightLabelCell(model: SettingsRightLabelOption(title: "Bluetooth",
+                                                                         image: UIImage(systemName: "wave.3.forward") ?? .add,
+                                                                         iconBackGroundColor: .systemBlue,
+                                                                         rightLabel: "Вкл.", rightLabelForRightContainer: " ",
+                                                                         rightIconBackGroundColor: .none) {
+                                        }),
+                                        .basicCell(model: SettingsOption(title: "Сотовая связь",
+                                                                         image: UIImage(systemName: "antenna.radiowaves.left.and.right") ?? .add,
+                                                                         iconBackGroundColor: .systemGreen) {
+                                        }),
+                                        .basicCell(model: SettingsOption(title: "Режим модема",
+                                                                         image: UIImage(systemName: "personalhotspot") ?? .add,
+                                                                         iconBackGroundColor: .systemGreen) {
+                                        }),
+                                        .switchCell(model: SettingsSwitchOption(title: "VPN",
+                                                                                image: UIImage(systemName: "key.icloud") ?? .add,
+                                                                                iconBackGroundColor: .systemBlue,
+                                                                                isOn: false) {
+                                        }
+                                        )])
+        );
+        models.append(Section(options: [
+                                .basicCell(model: SettingsOption(title: "Уведомления",
+                                                                 image: UIImage(systemName: "dot.square") ?? .add,
+                                                                 iconBackGroundColor: .systemRed) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Звуки и тактильные сигналы",
+                                                                 image: UIImage(systemName: "speaker.wave.2") ?? .add,
+                                                                 iconBackGroundColor: .systemPink) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Не беспокоить",
+                                                                 image: UIImage(systemName: "moon") ?? .add,
+                                                                 iconBackGroundColor: .purple) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Экранное время",
+                                                                 image: UIImage(systemName: "hourglass") ?? .add,
+                                                                 iconBackGroundColor: .purple) {
+                                }
+                                )])
+        );
+        models.append(Section(options: [
+                                .rightLabelCell(model: SettingsRightLabelOption(title: "Основные",
+                                                                 image: UIImage(systemName: "gear") ?? .add,
+                                                                 iconBackGroundColor: .lightGray,
+                                                                 rightLabel: " ",
+                                                                 rightLabelForRightContainer: "1",
+                                                                 rightIconBackGroundColor: .systemRed) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Пункт управления",
+                                                                 image: UIImage(systemName: "switch.2") ?? .add,
+                                                                 iconBackGroundColor: .lightGray) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Экран и яркость",
+                                                                 image: UIImage(systemName: "textformat.size") ?? .add,
+                                                                 iconBackGroundColor: .systemBlue) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Экран <Домой>",
+                                                                 image: UIImage(systemName: "switch.2") ?? .add,
+                                                                 iconBackGroundColor: .blue) {
+                                }),
+                                .basicCell(model: SettingsOption(title: "Универсальный доступ",
+                                                                 image: UIImage(systemName: "person.crop.square") ?? .add,
+                                                                 iconBackGroundColor: .systemBlue) {
+                                }
+                                )])
+        )
 
         return models
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].options.count
     }
