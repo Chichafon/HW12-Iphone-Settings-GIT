@@ -10,9 +10,7 @@
 		82E3862127707EDC008A61A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3862027707EDC008A61A8 /* AppDelegate.swift */; };
 		82E3862327707EDC008A61A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3862227707EDC008A61A8 /* SceneDelegate.swift */; };
 		82E3862527707EDC008A61A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3862427707EDC008A61A8 /* ViewController.swift */; };
-		82E3862827707EDC008A61A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E3862627707EDC008A61A8 /* Main.storyboard */; };
 		82E3862A27707EDF008A61A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82E3862927707EDF008A61A8 /* Assets.xcassets */; };
-		82E3862D27707EDF008A61A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E3862B27707EDF008A61A8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,9 +18,7 @@
 		82E3862027707EDC008A61A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82E3862227707EDC008A61A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		82E3862427707EDC008A61A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		82E3862727707EDC008A61A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82E3862927707EDF008A61A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		82E3862C27707EDF008A61A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82E3862E27707EDF008A61A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,15 +52,69 @@
 		82E3861F27707EDC008A61A8 /* HW12 Iphone Settings GIT */ = {
 			isa = PBXGroup;
 			children = (
-				82E3862027707EDC008A61A8 /* AppDelegate.swift */,
-				82E3862227707EDC008A61A8 /* SceneDelegate.swift */,
-				82E3862427707EDC008A61A8 /* ViewController.swift */,
-				82E3862627707EDC008A61A8 /* Main.storyboard */,
-				82E3862927707EDF008A61A8 /* Assets.xcassets */,
-				82E3862B27707EDF008A61A8 /* LaunchScreen.storyboard */,
-				82E3862E27707EDF008A61A8 /* Info.plist */,
+				82E3863527707F44008A61A8 /* Sources */,
+				82E3863427707F3C008A61A8 /* Resources */,
 			);
 			path = "HW12 Iphone Settings GIT";
+			sourceTree = "<group>";
+		};
+		82E3863427707F3C008A61A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82E3862927707EDF008A61A8 /* Assets.xcassets */,
+				82E3862E27707EDF008A61A8 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		82E3863527707F44008A61A8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				82E3863727707F89008A61A8 /* Scenes */,
+				82E3863627707F79008A61A8 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		82E3863627707F79008A61A8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				82E3862027707EDC008A61A8 /* AppDelegate.swift */,
+				82E3862227707EDC008A61A8 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		82E3863727707F89008A61A8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				82E3863A27707FBB008A61A8 /* Views */,
+				82E3863927707FB2008A61A8 /* Models */,
+				82E3863827707F9D008A61A8 /* Controller */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		82E3863827707F9D008A61A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		82E3863927707FB2008A61A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82E3863A27707FBB008A61A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82E3862427707EDC008A61A8 /* ViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E3862D27707EDF008A61A8 /* LaunchScreen.storyboard in Resources */,
 				82E3862A27707EDF008A61A8 /* Assets.xcassets in Resources */,
-				82E3862827707EDC008A61A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,25 +192,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		82E3862627707EDC008A61A8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82E3862727707EDC008A61A8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		82E3862B27707EDF008A61A8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82E3862C27707EDF008A61A8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		82E3862F27707EDF008A61A8 /* Debug */ = {
@@ -287,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "HW12 Iphone Settings GIT/Info.plist";
+				INFOPLIST_FILE = "HW12 Iphone Settings GIT/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "HW12 Iphone Settings GIT/Info.plist";
+				INFOPLIST_FILE = "HW12 Iphone Settings GIT/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
