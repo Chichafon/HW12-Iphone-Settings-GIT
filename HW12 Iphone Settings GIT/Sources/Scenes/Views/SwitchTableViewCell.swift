@@ -12,7 +12,7 @@ class SwitchTableViewCell: UITableViewCell {
 
     private let label: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = Metrics.labelNumberOfLines
 
         return label
     }()
@@ -27,7 +27,7 @@ class SwitchTableViewCell: UITableViewCell {
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = Metrics.iconContainerCornerRadius
         view.layer.masksToBounds = true
 
         return view
@@ -60,29 +60,29 @@ class SwitchTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let size: CGFloat = contentView.frame.size.height - 12
-        iconContainer.frame = CGRect(x: 15,
-                                     y: 6,
+        let size: CGFloat = contentView.frame.size.height - Metrics.sizeLeadingPosition
+        iconContainer.frame = CGRect(x: Metrics.iconContainerXframe,
+                                     y: Metrics.iconContainerYframe,
                                      width:size,
                                      height: size)
 
-        let imageSize: CGFloat = size / 1.5
-        iconImageView.frame = CGRect(x: (size - imageSize) / 2,
-                                     y: (size - imageSize) / 2,
+        let imageSize: CGFloat = size / Metrics.imageSizeConfigurationRatio
+        iconImageView.frame = CGRect(x: (size - imageSize) / Metrics.iconImageViewFrameRatio,
+                                     y: (size - imageSize) / Metrics.iconImageViewFrameRatio,
                                      width: imageSize,
                                      height: imageSize)
         imageView?.center = iconContainer.center
 
         mySwitch.sizeToFit()
-        mySwitch.frame = CGRect(x: contentView.frame.size.width - mySwitch.frame.size.width - 20,
-                                y: (contentView.frame.size.height - mySwitch.frame.size.height) / 2,
+        mySwitch.frame = CGRect(x: contentView.frame.size.width - mySwitch.frame.size.width - Metrics.mySwitchXframe,
+                                y: (contentView.frame.size.height - mySwitch.frame.size.height) / Metrics.mySwitchYframe,
                                 width: mySwitch.frame.size.width,
                                 height: mySwitch.frame.size.height)
 
         label.frame = CGRect(
-            x: 25 + iconContainer.frame.size.width,
+            x: Metrics.labelXframe + iconContainer.frame.size.width,
             y: 0,
-            width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+            width: (contentView.frame.size.width - Metrics.labelFrameWidthPosition) - iconContainer.frame.size.width,
             height: contentView.frame.size.height)
     }
 
@@ -95,10 +95,26 @@ class SwitchTableViewCell: UITableViewCell {
         mySwitch.isOn = false
     }
 
-    public func configure(with model: SettingsSwitchOption) {
+    public func configure(with model: SettingsOption) {
         label.text = model.title
         iconImageView.image = model.image
         iconContainer.backgroundColor = model.iconBackGroundColor
-        mySwitch.isOn = model.isOn
+        mySwitch.isOn = model.isOn ?? false
+    }
+}
+
+extension SwitchTableViewCell: UITableViewDelegate {
+    enum Metrics {
+        static let iconContainerCornerRadius: CGFloat = 8
+        static let labelNumberOfLines = 1
+        static let imageSizeConfigurationRatio: CGFloat = 1.5
+        static let iconImageViewFrameRatio: CGFloat = 2
+        static let sizeLeadingPosition: CGFloat = 12
+        static let labelFrameWidthPosition: CGFloat = 20
+        static let labelXframe: CGFloat = 25
+        static let iconContainerXframe: CGFloat = 15
+        static let iconContainerYframe: CGFloat = 6
+        static let mySwitchXframe: CGFloat = 20
+        static let mySwitchYframe: CGFloat = 2
     }
 }

@@ -12,7 +12,7 @@ class SettingTableViewCell: UITableViewCell {
 
     private let label: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = Metrics.labelNumberOfLines
 
         return label
     }()
@@ -20,7 +20,7 @@ class SettingTableViewCell: UITableViewCell {
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = Metrics.iconContainerCornerRadius
         view.layer.masksToBounds = true
 
         return view
@@ -52,23 +52,23 @@ class SettingTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let size: CGFloat = contentView.frame.size.height - 12
-        iconContainer.frame = CGRect(x: 15,
-                                     y: 6,
-                                     width:size,
+        let size: CGFloat = contentView.frame.size.height - Metrics.sizeLeadingPosition
+        iconContainer.frame = CGRect(x: Metrics.iconContainerXframe,
+                                     y: Metrics.iconContainerYframe,
+                                     width: size,
                                      height: size)
 
-        let imageSize: CGFloat = size / 1.5
-        iconImageView.frame = CGRect(x: (size - imageSize) / 2,
-                                     y: (size - imageSize) / 2,
+        let imageSize: CGFloat = size / Metrics.imageSizeConfigurationRatio
+        iconImageView.frame = CGRect(x: (size - imageSize) / Metrics.imageViewFrameRatio,
+                                     y: (size - imageSize) / Metrics.imageViewFrameRatio,
                                      width: imageSize,
                                      height: imageSize)
         imageView?.center = iconContainer.center
 
         label.frame = CGRect(
-            x: 25 + iconContainer.frame.size.width,
+            x: Metrics.labelXframe + iconContainer.frame.size.width,
             y: 0,
-            width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+            width: (contentView.frame.size.width - Metrics.labelFrameWidthPosition) - iconContainer.frame.size.width,
             height: contentView.frame.size.height)
     }
 
@@ -86,4 +86,19 @@ class SettingTableViewCell: UITableViewCell {
         iconContainer.backgroundColor = model.iconBackGroundColor
     }
 }
+
+extension SettingTableViewCell: UITableViewDelegate {
+    enum Metrics {
+        static let iconContainerCornerRadius: CGFloat = 8
+        static let labelNumberOfLines = 1
+        static let imageSizeConfigurationRatio: CGFloat = 1.5
+        static let imageViewFrameRatio: CGFloat = 2
+        static let sizeLeadingPosition: CGFloat = 12
+        static let labelFrameWidthPosition: CGFloat = 20
+        static let labelXframe: CGFloat = 25
+        static let iconContainerXframe: CGFloat = 15
+        static let iconContainerYframe: CGFloat = 6
+    }
+}
+
 
