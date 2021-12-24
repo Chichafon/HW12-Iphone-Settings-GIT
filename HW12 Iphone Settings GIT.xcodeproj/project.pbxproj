@@ -15,7 +15,6 @@
 		82E3864027708B4E008A61A8 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3863F27708B4E008A61A8 /* SettingTableViewCell.swift */; };
 		82E3864227708E72008A61A8 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3864127708E72008A61A8 /* SwitchTableViewCell.swift */; };
 		82E3864427709157008A61A8 /* SettingsRightLabelOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3864327709157008A61A8 /* SettingsRightLabelOptionCell.swift */; };
-		82E3864827721EE8008A61A8 /* CellModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E3864727721EE8008A61A8 /* CellModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		82E3863F27708B4E008A61A8 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		82E3864127708E72008A61A8 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		82E3864327709157008A61A8 /* SettingsRightLabelOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRightLabelOptionCell.swift; sourceTree = "<group>"; };
-		82E3864727721EE8008A61A8 /* CellModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				82E3863D2770895F008A61A8 /* CellModel.swift */,
-				82E3864727721EE8008A61A8 /* CellModelData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E3862527707EDC008A61A8 /* ViewController.swift in Sources */,
-				82E3864827721EE8008A61A8 /* CellModelData.swift in Sources */,
 				82E3864427709157008A61A8 /* SettingsRightLabelOptionCell.swift in Sources */,
 				82E3864027708B4E008A61A8 /* SettingTableViewCell.swift in Sources */,
 				82E3862127707EDC008A61A8 /* AppDelegate.swift in Sources */,
